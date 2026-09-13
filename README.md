@@ -1,96 +1,76 @@
-# DataBytes - Frontend Guide
+# DataBytes Frontend Guide
 
-A comprehensive, practical support guide for future DataBytes frontend contributors. This project hosts structured tutorials, best practices, and UI/UX standards to ensure consistency and quality across our applications.
+A support guide for DataBytes frontend contributors. Covers general frontend practices plus IoT-project-specific guidance: the current frontend, the backend APIs, the mock-to-live migration path, and how to report integration issues.
 
-## 🚀 Tech Stack
+## Tech Stack
 
-- **Framework**: [Next.js](https://nextjs.org/) (App Router)
-- **Styling**: [Tailwind CSS](https://tailwindcss.com/) with semantic color variables (`oklch`)
-- **Theme Management**: `next-themes` (supporting Light, Dark, and System Default modes)
-- **Command Palette**: `cmdk` for fast keyboard-driven navigation
-- **Icons**: [Lucide React](https://lucide.dev/)
-- **UI Primitives**: Radix UI (Dialog, Sheet, Accordion, etc.)
+- Next.js (App Router)
+- Tailwind CSS, with semantic color variables (oklch)
+- next-themes for light/dark/system theme switching
+- cmdk for the Cmd+K command palette
+- Lucide React for icons
+- Radix UI primitives (Dialog, Sheet, Accordion, etc.)
 
----
+## Features
 
-## ✨ Features
+- Light, dark, and system theme modes, applied consistently across every page
+- Cmd+K (or Ctrl+K) command palette to jump to any guide chapter or switch themes
+- A slide-in mobile navigation drawer
+- Six Mock-to-Live guides (Datasets, Series, Filters, Analytics, Latest Alerts, Alert History), each with real, verified code examples
 
-- **Semantic Color System**: Configured in `globals.css` to allow seamless toggling between Light, Dark, and System modes. All core layouts and content components automatically adjust their text, backgrounds, and borders based on the current theme.
-- **Interactive Command Palette**: Press `Cmd + K` (or `Ctrl + K`) to toggle a search dialog. Search through all 11 guide chapters or execute quick actions like switching themes with your keyboard.
-- **Responsive Mobile Layout**: Features a slide-in side drawer (`Sheet` component) for navigation and theme controls on smaller screens.
-- **Modern Typography & Glassmorphism**: Tailored layouts withOutfit/Geist fonts, subtle animations, backdrop blurs, and gradient card outlines.
+## Getting Started
 
----
+Requires Node.js 18 or later.
 
-## 🛠️ Development & Commands
-
-### Prerequisites
-
-Ensure you have [Node.js](https://nodejs.org/) installed (v18+ recommended).
-
-### Install Dependencies
+Install dependencies:
 
 ```bash
 npm install
 ```
 
-### Run the Development Server
-
-The development script is configured to bypass Turbopack native binary compilation issues on certain architectures by running with Webpack:
+Run the development server:
 
 ```bash
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open http://localhost:3000.
 
-### Build and Deploy
-
-To build the application for production:
+Build for production:
 
 ```bash
 npm run build
 ```
 
-To run the production bundle locally:
+Run the production build locally:
 
 ```bash
 npm run start
 ```
 
-### Linting and Formatting
-
-Ensure your code matches project standards:
+Lint:
 
 ```bash
 npm run lint
 ```
 
----
-
-## 📂 Project Structure
+## Project Structure
 
 ```text
-├── app/                  # Next.js App Router (Layouts & Pages)
-│   ├── globals.css       # Core theme tokens (light/dark variables)
-│   ├── layout.tsx        # Hydration wrapper with ThemeProvider
-│   └── guide/            # The 11 documentation chapters (Contact, Workflow, etc.)
-├── components/           # Reusable UI components
-│   ├── ui/               # Radix UI primitives (command, sheet, dialog)
-│   ├── Sidebar.tsx       # Sidebar navigation
-│   ├── TopNav.tsx        # Top navigation with mobile drawer trigger
-│   ├── ThemeToggle.tsx   # Light/dark/system mode toggle
-│   └── CommandMenu.tsx   # Cmd+K search command menu
-├── lib/                  # Helper utilities and navigation configurations
-└── public/               # Static assets & placeholders
+app/                    Next.js App Router pages
+  globals.css           Theme tokens (light/dark)
+  layout.tsx             Root layout, theme provider, nav, footer
+  guide/                 Guide chapters (frontend workflow, API reference, mock-to-live, etc.)
+components/             Reusable UI components
+  ui/                    Radix UI primitives
+  guide/                 Components shared across guide pages (GuideBlocks.tsx)
+lib/                    Navigation config and Mock-to-Live guide content
 ```
 
----
+## Contributing
 
-## 🤝 Contributing
+To suggest a change:
 
-We encourage team members to contribute to this guide! If you find an error, want to suggest updates, or add new examples:
-1. Create a feature branch: `git checkout -b feature/your-feature`
-2. Make your edits conforming to the semantic color system (`bg-background`, `text-foreground`, etc.).
-3. Commit and open a Pull Request.
-4. Reach out on Slack at `#frontend-discussion` or contact the core team via the **Contact Us** page.
+1. Create a branch: `git checkout -b feature/your-feature`
+2. Make your edit, using the existing semantic color classes (`bg-background`, `text-foreground`, etc.) rather than hard-coded colors
+3. Open a pull request
