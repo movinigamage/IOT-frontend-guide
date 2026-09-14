@@ -13,7 +13,6 @@ const _geistMono = Geist_Mono({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: 'Frontend Support Toolkit',
   description: 'Beginner-friendly frontend guidance and IoT project support for UI quality, API testing, integration, mock-to-live migration, and issue reporting.',
-  generator: 'v0.app',
 }
 
 export default function RootLayout({
